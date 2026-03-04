@@ -27,8 +27,8 @@ async function loadStatuses(page) {
     var from = document.getElementById('dateFrom').value;
     var to   = document.getElementById('dateTo').value;
 
-    if (from) payload.date_from = from.replace('T', ' ') + ':00';
-    if (to)   payload.date_to   = to.replace('T', ' ')   + ':00';
+    if (from) payload.date_from = from + ' 00:00:00';
+    if (to)   payload.date_to   = to   + ' 23:59:59';
 
     try {
         var res = await fetch('/api/get_statuses', {

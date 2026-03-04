@@ -3,8 +3,8 @@ $pageTitle  = 'Lead Statuses';
 $activePage = 'statuses';
 $pageScript = 'statuses.js';
 
-$dateTo   = date('Y-m-d\TH:i');
-$dateFrom = date('Y-m-d\TH:i', strtotime('-30 days'));
+$dateTo   = date('Y-m-d');
+$dateFrom = date('Y-m-d', strtotime('-30 days'));
 
 require_once __DIR__ . '/../src/bootstrap.php';
 require_once __DIR__ . '/components/layout_header.php';
@@ -23,12 +23,12 @@ require_once __DIR__ . '/components/layout_header.php';
       <div class="row g-3 align-items-end">
         <div class="col-sm-4">
           <label class="form-label">From</label>
-          <input type="datetime-local" id="dateFrom" class="form-control"
+          <input type="date" id="dateFrom" class="form-control"
                  value="<?= $dateFrom ?>" max="<?= $dateTo ?>">
         </div>
         <div class="col-sm-4">
           <label class="form-label">To</label>
-          <input type="datetime-local" id="dateTo" class="form-control"
+          <input type="date" id="dateTo" class="form-control"
                  value="<?= $dateTo ?>" max="<?= $dateTo ?>">
         </div>
         <div class="col-sm-4">
