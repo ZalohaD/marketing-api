@@ -1,0 +1,11 @@
+{
+    "name": "space-marketing/app",
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}

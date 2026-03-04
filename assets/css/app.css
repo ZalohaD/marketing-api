@@ -1,0 +1,282 @@
+/* ================================================
+   app.css — Space-Marketing custom styles on Bootstrap
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --lf-accent:      #6366f1;
+    --lf-accent-dark: #4f46e5;
+    --lf-bg:          #0f1117;
+    --lf-surface:     #1a1d27;
+    --lf-surface2:    #22263a;
+    --lf-border:      rgba(255,255,255,0.07);
+    --lf-text:        #e8eaf0;
+    --lf-muted:       #7b80a0;
+}
+
+/* ── Base ── */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--lf-bg);
+    color: var(--lf-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Fade-in on load ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+    animation: fadeUp 0.45s ease both;
+}
+.fade-up-1 { animation-delay: .05s; }
+.fade-up-2 { animation-delay: .12s; }
+.fade-up-3 { animation-delay: .19s; }
+.fade-up-4 { animation-delay: .26s; }
+.fade-up-5 { animation-delay: .33s; }
+
+/* ── Navbar ── */
+.navbar {
+    background-color: var(--lf-surface) !important;
+    border-bottom: 1px solid var(--lf-border);
+    padding-top: .875rem;
+    padding-bottom: .875rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -.02em;
+    color: var(--lf-text) !important;
+}
+
+.navbar-brand .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lf-accent);
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--lf-accent);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: .4; }
+}
+
+.nav-link {
+    color: var(--lf-muted) !important;
+    font-weight: 500;
+    font-size: .9rem;
+    transition: color .2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--lf-text) !important;
+}
+
+.nav-link.active {
+    position: relative;
+}
+
+/* ── Cards ── */
+.card {
+    background-color: var(--lf-surface);
+    border: 1px solid var(--lf-border) !important;
+    border-radius: 14px !important;
+}
+
+.card-header {
+    background-color: var(--lf-surface) !important;
+    border-bottom: 1px solid var(--lf-border) !important;
+    border-radius: 14px 14px 0 0 !important;
+    padding: 1rem 1.25rem;
+}
+
+.card-footer {
+    background-color: var(--lf-surface) !important;
+    border-top: 1px solid var(--lf-border) !important;
+    border-radius: 0 0 14px 14px !important;
+}
+
+/* ── Form controls ── */
+.form-label {
+    color: var(--lf-muted);
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .4rem;
+}
+
+.form-control {
+    background-color: var(--lf-surface2);
+    border: 1px solid var(--lf-border);
+    border-radius: 8px;
+    color: var(--lf-text);
+    padding: .65rem .9rem;
+    font-size: .9rem;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-control:focus {
+    background-color: var(--lf-surface2);
+    border-color: var(--lf-accent);
+    color: var(--lf-text);
+    box-shadow: 0 0 0 3px rgba(99,102,241,.2);
+}
+
+.form-control::placeholder {
+    color: #3d4160;
+}
+
+/* datetime-local dark scheme */
+.form-control[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    background-color: var(--lf-accent);
+    border-color: var(--lf-accent);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: .65rem 1.25rem;
+    transition: background-color .2s, transform .15s, box-shadow .2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--lf-accent-dark);
+    border-color: var(--lf-accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(99,102,241,.35);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-outline-secondary {
+    border-color: var(--lf-border);
+    color: var(--lf-muted);
+    border-radius: 8px;
+    font-size: .85rem;
+    transition: all .2s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--lf-surface2);
+    border-color: rgba(255,255,255,.15);
+    color: var(--lf-text);
+}
+
+/* ── Table ── */
+.table {
+    color: var(--lf-text);
+    margin-bottom: 0;
+}
+
+.table-light {
+    --bs-table-bg: #181b28;
+    --bs-table-color: var(--lf-muted);
+}
+
+.table thead th {
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--lf-muted);
+    border-bottom: 1px solid var(--lf-border);
+    padding: .75rem 1.25rem;
+}
+
+.table tbody td {
+    border-color: var(--lf-border);
+    padding: .85rem 1.25rem;
+    font-size: .875rem;
+    vertical-align: middle;
+    color: white !important; /* sorry for this :c */
+}
+
+.text-secondary{
+    color: white !important; /* double sorry for this :c */
+}
+
+.table-hover tbody tr {
+    transition: background-color .15s;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--lf-surface2) !important;
+    --bs-table-accent-bg: transparent;
+}
+
+/* ── Badges ── */
+.badge {
+    font-weight: 500;
+    font-size: .75rem;
+    padding: .35em .75em;
+}
+
+/* ── Alerts ── */
+.alert-success {
+    background-color: rgba(34,197,94,.1);
+    border-color: rgba(34,197,94,.2);
+    color: #86efac;
+    border-radius: 10px;
+}
+
+.alert-danger {
+    background-color: rgba(239,68,68,.1);
+    border-color: rgba(239,68,68,.2);
+    color: #fca5a5;
+    border-radius: 10px;
+}
+
+.alert dt { color: var(--lf-muted); }
+.alert dd { color: var(--lf-text); }
+.alert a  { color: #a5b4fc; }
+
+/* ── Page title block ── */
+.page-eyebrow {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--lf-accent);
+    margin-bottom: .4rem;
+}
+
+/* ── Footer ── */
+footer {
+    border-top: 1px solid var(--lf-border) !important;
+    background-color: var(--lf-surface) !important;
+    color: var(--lf-muted) !important;
+    font-size: .8rem;
+}
+
+
+/* ── Sticky footer ── */
+/* body вже flex column — достатньо mt-auto на footer */
+footer {
+    border-top: 1px solid var(--lf-border) !important;
+    background-color: var(--lf-surface) !important;
+}
+
+.page-centered {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.table>:not(caption)>*>*{
+    background-color: unset;
+}

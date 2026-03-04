@@ -1,0 +1,13 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^\.env$       - [F,L]
+    RewriteRule ^src/         - [F,L]
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^api/([a-z_]+)/?$   api/$1.php   [L]
+    RewriteRule ^$                  pages/home.php [L]
+    RewriteRule ^([a-z_]+)/?$       pages/$1.php   [L]
+</IfModule>
